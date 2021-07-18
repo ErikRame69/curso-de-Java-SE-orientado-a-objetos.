@@ -58,11 +58,10 @@ public class User {
 
     @Override
     public String toString() {
-        return "User" +
-                "\n name= " + name +
-                "\n email= " + email +
-                "\n address= " + address +
-                "\n phoneNumber= " + phoneNumber;
+        return  "\n name: " + name +
+                "\n email: " + email +
+                "\n address: " + address +
+                "\n phoneNumber: " + phoneNumber;
     }
 }
  

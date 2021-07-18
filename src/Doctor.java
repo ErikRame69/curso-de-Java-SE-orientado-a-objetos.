@@ -8,7 +8,7 @@ public class Doctor extends User {
     Doctor(String name, String email) {
         super(name, email);
         System.out.println("El nombre del doctor asignado es: " + name);
-        this.speciality = speciality;
+        //this.speciality = speciality;
     }
 
     public String getSpeciality() {
@@ -28,8 +28,11 @@ public class Doctor extends User {
     public ArrayList<AvailableAppointment> getAvailableAppointments(){
         return availableAppointments;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return super.toString()+ "\n Speciality: "+speciality+"\n Available :" + availableAppointments.toString();
+    }
 
     public static class AvailableAppointment{
     private int id;
@@ -65,6 +68,12 @@ public class Doctor extends User {
         public void setTime(String time) {
             this.time = time;
         }
-    }
 
+
+        @Override
+        public String toString() {
+            return  "\n Available Appointments \n   Date : " + date +
+                    "\n   Time: " + time;
+        }
+    }
 }
