@@ -2,6 +2,7 @@ package ui;
 
 import model.Doctor;
 
+import java.rmi.server.UID;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Scanner;
@@ -13,7 +14,7 @@ public class UiPatientMenu {
         do {
             System.out.println("\n\n");
             System.out.println("Patient");
-            System.out.println("Welcome: "+UiMenu.patientLogged);
+            System.out.println("Welcome: "+UiMenu.patientLogged.getName());
             System.out.println("1. Book an appointment");
             System.out.println("2. My Appointments");
             System.out.println("0. Logout");
@@ -22,12 +23,13 @@ public class UiPatientMenu {
             response = Integer.valueOf(sc.nextLine());
 
             switch (response) {
-                case 1:
+                case 1: showBookAppointmentMenu();
                     break;
                 case 2:
+                    showPatienMyAppointments();
                     break;
                 case 0:
-                    ui.UiMenu.showMenu();
+                    UiMenu.showMenu();
                     break;
             }
         }
@@ -54,11 +56,56 @@ public class UiPatientMenu {
 
             Scanner sc = new Scanner(System.in);
             int responseDateSelected = Integer.valueOf(sc.nextLine());
+            Map<Integer, Doctor> doctorAvailableSelected = doctors.get(responseDateSelected);
+            Integer indexDate = 0;
+            Doctor doctorSelected = new Doctor("", "");
+
+            for (Map.Entry<Integer, Doctor> doc :doctorAvailableSelected.entrySet()){
+                indexDate = doc.getKey();
+                doctorSelected= doc.getValue();
+            }
+
+            System.out.println(doctorSelected.getName()+
+                    " .Date: " +
+                    doctorSelected.getAvailableAppointments().get(indexDate).getDate() +
+                    ". Time: " +
+                    doctorSelected.getAvailableAppointments().get(indexDate).getTime());
+            System.out.println("Confirm your appointmenr: \n1. Yes \n2. Change Data");
+            response = Integer.valueOf(sc.nextLine());
+
+            if (response == 1){
+                UiMenu.patientLogged.addAppointmentDoctors(
+                        doctorSelected,
+                        doctorSelected.getAvailableAppointments().get(indexDate).getDate(null),
+                        doctorSelected.getAvailableAppointments().get(indexDate).getTime());
+
+                    showPatienMenu();
+                
+            }
 
         }
         
         while (response!= 0);
 
+    }
+
+    private static void showPatienMyAppointments(){
+        int response = 0;
+        do {
+            System.out.println(":: My Appointments");
+            if (UiMenu.patientLogged.getAppointmentDoctors().size()==0){
+                System.out.println("Don't have appointments");
+                break;
+            }
+            for (int i = 0; i < UiMenu.patientLogged.getAppointmentDoctors().size(); i++) {
+                int j = i + 1;
+                System.out.println(j + ". " +
+                        "Date: " + UiMenu.patientLogged.getAppointmentDoctors().get(i).getDate() +
+                        "Time: " + UiMenu.patientLogged.getAppointmentDoctors().get(i).getTime() +
+                        "\n Doctor: " + UiMenu.patientLogged.getAppointmentDoctors().get(i).getDoctor().getName());
+            }
+            System.out.println("0. Return");
+        } while (response!=0);
     }
 
 }
