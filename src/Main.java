@@ -22,6 +22,7 @@ public class Main {
 
     Patient patient = new Patient("Erik Ramirez", "eramirez@accenture.com");
         System.out.println(patient);
-        
+
     }
+
 }
