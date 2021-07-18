@@ -70,7 +70,7 @@ public class Patient {
         }
         else if(phoneNumber.length() == 8){
             this.phoneNumber = phoneNumber;
-            System.out.println(phoneNumber);
+            System.out.println("Numero del paciente: " + phoneNumber);
         }
     }
 
