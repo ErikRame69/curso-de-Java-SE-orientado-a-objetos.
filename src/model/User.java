@@ -65,5 +65,7 @@ public abstract class User {
                 "\n address: " + address +
                 "\n phoneNumber: " + phoneNumber;
     }
+
+    public abstract void showDataUser();
 }
  
