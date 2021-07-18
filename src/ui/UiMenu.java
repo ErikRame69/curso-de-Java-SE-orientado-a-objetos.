@@ -77,7 +77,7 @@ public class UiMenu {
                     if (p.getEmail().equals(email)){
                         emailCorrect = true;
                         patientLogged = p;
-                        
+
                     }
                 }
             }
