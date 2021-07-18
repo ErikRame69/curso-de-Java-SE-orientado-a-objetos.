@@ -17,10 +17,7 @@ public class Main {
     }
 
     Patient patient = new Patient("Erik Ramirez", "eramirez@accenture.com");
-    patient.setWeight(65);
-    System.out.println( patient.getWeight());
-
-    patient.setPhoneNumber("55404458");
-
+        System.out.println(patient);
+        
     }
 }
