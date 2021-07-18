@@ -14,7 +14,7 @@ public class UIDoctorMenu {
         do {
             System.out.println("\n\n");
             System.out.println("Doctor");
-            System.out.println("Welcome" + UiMenu.doctorLogged.getName();
+            System.out.println("Welcome " + UiMenu.doctorLogged.getName());
             System.out.println("1. Add Available");
             System.out.println("2. My Schedule Appointments");
             System.out.println("0. Logout");
@@ -24,6 +24,7 @@ public class UIDoctorMenu {
 
             switch (response){
                 case 1:
+                    showAddAvailableAppointmentsMenu();
                     break;
                 case 2:
                     break;
@@ -44,7 +45,7 @@ public class UIDoctorMenu {
 
             for (int i = 0; i < 3; i++) {
                 int j = i + 1;
-                System.out.println(j + ". " + UiMenu.MONTHS[i];
+                System.out.println(j + ". " + UiMenu.MONTHS[i]);
             }
             System.out.println("0. Return");
 
@@ -53,13 +54,13 @@ public class UIDoctorMenu {
 
             if (response > 0 && response < 4){
                 int monthSelected = response;
-                System.out.println(monthSelected +" . "+UiMenu.MONTHS[monthSelected]);
+                System.out.println(monthSelected +" . "+UiMenu.MONTHS[monthSelected-1]);
                 System.out.println("Insert the day available: [dd/mm/aaaa]");
                 String date = sc.nextLine();
 
                 System.out.println("Your date is: " +date+"\n1. Correct \n2.Change Date");
                 int responseDate = Integer.valueOf(sc.nextLine());
-                if (responseDate = 2) continue;
+                if (responseDate == 2) continue;
 
                 int responseTime = 0;
                 String time = "";

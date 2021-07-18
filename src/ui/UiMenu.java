@@ -66,8 +66,9 @@ public class UiMenu {
             if (userType == 1){
                 for (Doctor d: doctors){
                     if (d.getEmail().equals(email)){
-                        emailCorrect == true;
+                        emailCorrect = true;
                         doctorLogged = d;
+                        UIDoctorMenu.showDoctorMenu();
 
                     }
                 }
