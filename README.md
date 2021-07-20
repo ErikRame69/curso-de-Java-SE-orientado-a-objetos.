@@ -21,13 +21,14 @@ Del lado del paciente:
 - Agendar una cita.
 
 Del lado de la enfermera
--No se implemetno mucho a su modulo.
+- No se implemetno mucho a su modulo.
 
 ## Tecnologias usadas
 Usamos:
 - Java
 - IntelliJ IDEA
 - Windows Subsystem for LInux 2 (WSL2)
+- Ubuntu
 
 ### Algunas anotaciones del curso
 Durante el trascurso del curso trate de tomar apuntes muy específicos que me han servido de ayuda en casi de repasar algo que no tenga muy claro o que simplemente necesite recordar.
